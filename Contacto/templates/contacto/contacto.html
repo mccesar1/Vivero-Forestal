@@ -1,0 +1,178 @@
+
+{% extends "ProyectoWebApp/base.html" %}
+
+
+{% load static  %}
+
+{% block content%}
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js'></script>
+
+
+<style type="text/css">
+.wrapper {
+    height: 100vh;
+    background: #000;
+    background: url("https://i.imgur.com/g63vXfd.jpg");
+    background-size: cover;
+    width: 100%
+}
+
+.overlay {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8)
+}
+
+.contact-us {
+    margin-top: 50px;
+    margin-bottom: 50px
+}
+
+.contact-us h3,
+p {
+    color: #fff
+}
+
+.address {
+    margin-top: 14px !important;
+    margin-left: 10px
+}
+
+.address span {
+    color: #7B1FA2
+}
+
+.icons {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.icons i {
+    font-size: 20px
+}
+
+.forms {
+    padding: 20px
+}
+
+.inputs input {
+    margin-bottom: 13px;
+    border: none;
+    border-bottom: 2px solid #eee
+}
+
+.inputs input:focus {
+    margin-bottom: 13px;
+    border: none;
+    border-bottom: 2px solid #7B1FA2;
+    box-shadow: none
+}
+
+.inputs textarea {
+    margin-bottom: 13px;
+    border: none;
+    border-bottom: 2px solid #eee;
+    width: 100%;
+    resize: none
+}
+
+.inputs textarea:focus {
+    margin-bottom: 13px;
+    border: none;
+    border-bottom: 2px solid #7B1FA2;
+    box-shadow: none;
+    resize: none
+}
+
+.form-control {
+    padding: .375rem .25rem
+}
+
+</style>
+
+
+<div class="wrapper">
+    <div class="overlay">
+
+
+
+ <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-9">
+                <div class="contact-us text-center">
+                    <h3>Contactenos</h3>
+                    <p class="mb-5">Rellene el siguiente formulario con su mensaje.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mt-5 text-center px-3">
+                                <div class="d-flex flex-row align-items-center"> <span class="icons">
+									<i class="fa fa-map-marker"></i></span>
+                                    <div class="address text-left"> <span>Direccion</span>
+                                        <p>461, Camino Real, Delicias, Chihuahua</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row align-items-center mt-3"> <span class="icons">
+									<i class="fa fa-phone"></i></span>
+                                    <div class="address text-left"> <span>Telefono</span>
+                                        <p>639 173 88 51</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row align-items-center mt-3"> <span class="icons">
+									<i class="fa fa-envelope-o"></i></span>
+                                    <div class="address text-left"> <span>Direccion</span>
+                                        <p>PROFODEL@hotmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+		<!-- envio del formulario --->
+                        <div class="col-md-6">
+                            <div class="text-center px-1">
+
+							<form action="/contacto/" method="post">{% csrf_token %}
+
+                                <div class="forms p-4 py-5 bg-white">
+                                    <h5>Contactenos</h5>
+
+
+									<!--<div class="field half first"> -->
+                                     <input name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+										<!--</div>-->
+									<p></p>
+										<!--<div class="field half">-->
+										<input  name="email" type="email" class="form-control" id="email" placeholder="Correo">
+										<!--</div>-->
+							<p></p>
+										<!--<div class="field">-->
+										<textarea  name="message" class="form-control" id="message"
+												  placeholder="Mensaje">
+
+										</textarea>
+										<!--</div>-->
+							<p></p>
+										<div></div>
+									<p></p>
+									<ul class="actions">
+										<li><input value="Enviar Mensaje" class="btn btn-dark" type="submit"></li>
+									</ul>
+                                </div>
+
+								</form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   {% endblock %}
